@@ -1,0 +1,12 @@
+<p>Current Player: {{ xTurn ? 'X' : 'O' }}</p>
+
+<button (click)="newGame()">Restart</button>
+<p *ngIf="winner && winner!='DRAW'">Winner is {{ winner }}</p>
+<p *ngIf="winner=='DRAW'">{{ winner }}</p>
+<hr>
+
+<main>
+    <app-square *ngFor="let val of squares; let i = index" [value]="val" (click)="makeMove(i)" (mouseenter)="setMouseIndex(i)" [entry]="squares[i] ? false : true">
+
+    </app-square>
+</main>
